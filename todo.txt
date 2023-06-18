@@ -1,0 +1,11 @@
+- Close multiple "Challenge solved"-notifications in one go
+
+Read the Success Notifications section
+
+It will explain that Shift-clicking the X-button on any "Challenge solved"-notification will close all open notifications of this kind
+
+Solve any other challenge (or multiple) and then Shift-click the X-button on it to solve this challenge
+
+If you already have solved all but this challenge, you can just restart your Juice Shop instance to see all previous notifications again and then perform step 3 as described above.
+
+CSS Selector : #closeButton > span:nth-child(1)
