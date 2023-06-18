@@ -58,7 +58,7 @@ def main():
         sleep(1)
         bully_chatbot(driver, wait, url_address)
         sleep(1)
-        zero_stars(driver, wait, url_address)
+        zero_stars(url_address)
         sleep(1)
         view_basket(driver, wait, url_address)
         sleep(1)
